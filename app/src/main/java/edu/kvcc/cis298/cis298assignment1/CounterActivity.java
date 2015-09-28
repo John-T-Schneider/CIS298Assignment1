@@ -4,13 +4,53 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class CounterActivity extends AppCompatActivity {
 
+    int counter = 0;
+
+    private Button mPlusButton;
+    private Button mMinusButton;
+
+    TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
+
+        mPlusButton = (Button) findViewById(R.id.plus_button);
+        mPlusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                counter++;
+                text.setText(+ counter);
+
+                for(int counter=20; counter>20;){
+                    Toast.makeText(CounterActivity.this,
+                            "The counter is over 20!",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        mMinusButton = (Button) findViewById(R.id.minus_button);
+        mMinusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                counter--;
+                text.setText(- counter);
+            }
+        });
+
+
+
+
     }
 
     @Override
